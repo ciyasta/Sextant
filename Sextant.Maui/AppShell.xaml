@@ -4,12 +4,23 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Sextant.Maui"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:workloads="clr-namespace:Sextant.Maui.Views.Workloads"
+    xmlns:views="clr-namespace:Sextant.Maui.Views"
+    FlyoutBehavior="Locked"
     Title="Sextant.Maui">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <FlyoutItem Title="Welcome"
+                Icon="dotnet_bot.png">
+        <ShellContent Title="Welcome"
+              Icon="dotnet_bot.png"
+          ContentTemplate="{DataTemplate views:WelcomePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Workloads">
+        <ShellContent Title="Namespaces"
+              Icon="dotnet_bot.png"
+          ContentTemplate="{DataTemplate workloads:Namespaces}" />
+        <ShellContent Title="Pods"
+          Icon="dotnet_bot.png"
+      ContentTemplate="{DataTemplate workloads:Pods}" />
+    </FlyoutItem>
 </Shell>
